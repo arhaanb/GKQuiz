@@ -154,25 +154,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.subtext {
-  font-size: 1.3em;
-}
-
-.head {
-  margin-top: 1em;
-  margin-bottom: 3em;
-}
-
-.longq {
-  h6 {
-    margin-bottom: 1em;
-  }
-  textarea {
-    min-height: 15em;
-  }
-}
-
-button.cool {
-  margin-bottom: 5em;
-}
 </style>
