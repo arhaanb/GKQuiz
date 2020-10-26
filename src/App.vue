@@ -110,7 +110,7 @@
     <footer class="footer">
       <div class="center">
         <h6>
-          Made with 💗 by
+          Made with 💙 by
           <a href="//arhaanb.co" target="_blank">Arhaan Bahadur</a>
         </h6>
       </div>
@@ -194,7 +194,7 @@ export default {
 footer.footer {
   margin-top: 3em;
   padding: 0.7em 0;
-	background-color: rgba(228, 228, 228, 0.664);
-	border-top: solid 1px rgba(34, 34, 34, 0.2);
+  background-color: rgba(228, 228, 228, 0.664);
+  border-top: solid 1px rgba(34, 34, 34, 0.2);
 }
 </style>
