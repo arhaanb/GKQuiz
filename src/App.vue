@@ -1,28 +1,178 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <Layout>
+    <div class="container">
+      <div class="head">
+        <h2 class="med">Inter House GK Quiz</h2>
+        <h5 class="blue">11th November, 2020</h5>
+      </div>
+      <div v-if="submitted && !closed" class="succ">
+        <h3 v-if="msg == 'success'">
+          Your application was sent successfully :)
+        </h3>
+      </div>
+
+      <div v-if="closed" class="succ">
+        <h3>
+          Applications have now been closed.
+        </h3>
+      </div>
+
+      <form v-if="!submitted && !closed" @submit="addUser">
+        <div class="row">
+          <div class="one-third column">
+            <h6 class="subtext">Name</h6>
+            <input v-model="name" type="text" placeholder="Name" required />
+          </div>
+          <div class="one-third column">
+            <h6 class="subtext">Email</h6>
+            <input v-model="email" type="Email" placeholder="Email" required />
+          </div>
+          <div class="one-third column">
+            <h6 class="subtext">Phone Number</h6>
+            <input v-model="phone" type="number" placeholder="Phone" required />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="six columns">
+            <h6 class="subtext">Select Class</h6>
+            <select v-model="class1" required>
+              <option value="0" disabled>Class</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+          </div>
+
+          <div class="six columns">
+            <h6 class="subtext">Select Section</h6>
+            <select v-model="section" required>
+              <option value="0" disabled>Section</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+              <option value="E">E</option>
+              <option value="F">F</option>
+            </select>
+          </div>
+          <div class="twelve columns">
+            <h6 class="subtext">Select House</h6>
+            <select v-model="house" required>
+              <option value="0" disabled>Select House</option>
+              <option value="Sincerity">Sincerity</option>
+              <option value="Honesty">Honesty</option>
+              <option value="Aspiration">Aspiration</option>
+              <option value="Truth">Truth</option>
+              <option value="Perfection">Perfection</option>
+              <option value="Gratitude">Gratitude</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="u-cf"></div>
+
+        <div class="flex-center">
+          <h6 v-if="classerror" class="med red">
+            {{ classerror }}
+          </h6>
+          <h6 v-if="houseerror" class="med red" style="margin-bottom: 0.5em;">
+            {{ houseerror }}
+          </h6>
+          <button class="cool" :disabled="disable">
+            <span v-if="!loading">Submit</span>
+            <span v-if="loading">Loading</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </Layout>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import axios from 'axios'
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  metaInfo: {
+    title: 'AIPPM',
+  },
+  data: () => ({
+    name: '',
+    email: '',
+    phone: '',
+    class1: 0,
+    section: 0,
+    house: 0,
+    closed: false,
+    disable: false,
+    loading: false,
+    submitted: false,
+    msg: '',
+    classerror: '',
+    houseerror: '',
+  }),
+  methods: {
+    async addUser(e) {
+      e.preventDefault()
+      this.disable = true
+      this.loading = true
+      if (this.class1 == 0 || this.section == 0 || this.house == 0) {
+				this.classerror = ''
+				this.houseerror = ''
+        if (this.class1 == 0 || this.section == 0) {
+          this.classerror = 'Please choose your class.'
+          this.disable = false
+          this.loading = false
+        }
+
+        if (this.house == 0) {
+          this.houseerror = 'Please choose your house.'
+          this.disable = false
+          this.loading = false
+        }
+      } else {
+        await axios
+          .post('https://mismunapi.herokuapp.com/gkquiz', {
+            name: this.name,
+            email: this.email,
+            phone: this.phone,
+            class: this.class1,
+            section: this.section,
+            house: this.house,
+          })
+          .then((response) => {
+            const data = response.data
+            // console.log(data);
+            this.msg = data.msg
+          })
+        this.loading = false
+        this.submitted = true
+      }
+    },
+  },
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss" scoped>
+.subtext {
+  font-size: 1.3em;
+}
+
+.head {
+  margin-top: 1em;
+  margin-bottom: 3em;
+}
+
+.longq {
+  h6 {
+    margin-bottom: 1em;
+  }
+  textarea {
+    min-height: 15em;
+  }
+}
+
+button.cool {
+  margin-bottom: 5em;
 }
 </style>
