@@ -113,6 +113,9 @@
           Made with 💙 by
           <a href="//arhaanb.co" target="_blank">Arhaan Bahadur</a>
         </h6>
+        <h6>
+          Hosted by: Siddhayak Goyal & Achal Gupta
+        </h6>
       </div>
     </footer>
   </div>
