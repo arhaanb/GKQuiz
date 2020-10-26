@@ -24,9 +24,8 @@
 	font-family: 'whitney semibold';
 }
 
-.nono {
-	font-size: 1.2em;
-	margin-top: 0.5em;
+::-webkit-scrollbar {
+	display: none;
 }
 
 .zero {
@@ -116,4 +115,8 @@ button.cool:hover {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+
+.succ {
+	margin-bottom: 40vh;
 }

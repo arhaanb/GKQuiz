@@ -200,11 +200,11 @@ p {
 }
 
 a {
-	color: #1EAEDB
+	color: rgb(26, 72, 150)
 }
 
 a:hover {
-	color: #0FA0CE
+	color: #69e;
 }
 
 .button, button, input[type=button], input[type=reset], input[type=submit] {
@@ -235,14 +235,14 @@ a:hover {
 
 .button.button-primary, button.button-primary, input[type=button].button-primary, input[type=reset].button-primary, input[type=submit].button-primary {
 	color: #FFF;
-	background-color: #33C3F0;
-	border-color: #33C3F0
+	background-color: #69e;
+	border-color: #69e
 }
 
 .button.button-primary:focus, .button.button-primary:hover, button.button-primary:focus, button.button-primary:hover, input[type=button].button-primary:focus, input[type=button].button-primary:hover, input[type=reset].button-primary:focus, input[type=reset].button-primary:hover, input[type=submit].button-primary:focus, input[type=submit].button-primary:hover {
 	color: #FFF;
-	background-color: #1EAEDB;
-	border-color: #1EAEDB
+	background-color: rgb(26, 72, 150);
+	border-color: rgb(26, 72, 150)
 }
 
 input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=url], select, textarea {
@@ -268,7 +268,7 @@ textarea {
 }
 
 input[type=email]:focus, input[type=number]:focus, input[type=password]:focus, input[type=search]:focus, input[type=tel]:focus, input[type=text]:focus, input[type=url]:focus, select:focus, textarea:focus {
-	border: 1px solid #33C3F0;
+	border: 1px solid #69e;
 	outline: 0
 }
 
