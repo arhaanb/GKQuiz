@@ -9,14 +9,14 @@
       </div>
 
       <div class="info flex-center">
-        <div class="row">
-          <p class="nine columns center">
+        <div class="ten columns">
+          <p class="center">
             The Inter House GK Quiz will be held on
             <span class="med">11th November, 2020</span>
             <span>.</span>
             Fill out the form below if you are interested in participating. This
             form is for the students of
-            <a href="http//themis.in" target="_blank">
+            <a href="http://themis.in" target="_blank">
               The Mother's International School
             </a>
             only.
@@ -114,7 +114,9 @@
           <a href="//arhaanb.co" target="_blank">Arhaan Bahadur</a>
         </h6>
         <h6>
-          Hosted by: <a href="//minet.co" target="_blank">Siddhayak Goyal</a> & Achal Gupta
+          Hosted by:
+          <a href="//minet.co" target="_blank">Siddhayak Goyal</a>
+          & Achal Gupta
         </h6>
       </div>
     </footer>
