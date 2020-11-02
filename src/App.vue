@@ -24,16 +24,18 @@
         </div>
       </div>
 
-      <div v-if="submitted && !closed" class="succ">
-        <h3 v-if="msg == 'success'">
+      <div v-if="submitted && !closed" class="succ center">
+        <h3 class="center" v-if="msg == 'success'">
           Your application was sent successfully :)
         </h3>
+        <h5>Prelims will be held here on 3rd November, 2020</h5>
       </div>
 
-      <div v-if="closed" class="succ">
-        <h3>
+      <div v-if="closed" class="succ center">
+        <h3 class="center">
           Applications have now been closed.
         </h3>
+        <h5>Prelims will be held here on 3rd November, 2020</h5>
       </div>
 
       <form v-if="!submitted && !closed" @submit="addUser">
