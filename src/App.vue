@@ -135,7 +135,7 @@ export default {
     class1: 0,
     section: 0,
     house: 0,
-    closed: false,
+    closed: true,
     disable: false,
     loading: false,
     submitted: false,
